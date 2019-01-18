@@ -4,13 +4,13 @@ steps:
   args: ['install']
 
 # Test
-- name: 'gcr.io/cloud-builders/yarn'
-  args: ['run', 'test']
+# - name: 'gcr.io/cloud-builders/yarn'
+#   args: ['run', 'test']
 
 # Build
 - name: 'gcr.io/cloud-builders/yarn'
   args: ['run', 'build']
 
 #Deploy
-- name: 'gcr.io/$PROJECT_ID/firebase'
+- name: 'gcr.io/angular-ci-pipeline/firebase'
   args: ['deploy']

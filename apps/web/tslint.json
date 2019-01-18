@@ -1,0 +1,12 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "angular-ci-pipeline",
+      "camelCase"
+    ],
+    "component-selector": [true, "element", "angular-ci-pipeline", "kebab-case"]
+  }
+}
