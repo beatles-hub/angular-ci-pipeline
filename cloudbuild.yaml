@@ -1,4 +1,15 @@
 steps:
+# Decrypt
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - kms
+  - decrypt
+  - --ciphertext-file=.env.enc
+  - --plaintext-file=.env
+  - --location=global
+  - --keyring=generic
+  - --key=cloudbuild-env
+
 # Install
 - name: 'gcr.io/cloud-builders/yarn'
   args: ['install']
@@ -11,6 +22,7 @@ steps:
 - name: 'gcr.io/cloud-builders/yarn'
   args: ['run', 'build']
 
-#Deploy
-- name: 'gcr.io/angular-ci-pipeline/firebase'
-  args: ['deploy']
+# Deploy
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'deploy']
+
